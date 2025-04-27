@@ -1,0 +1,228 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Monthversary, Ally</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: url('https://drive.google.com/uc?export=view&id=1xKY9NlVVsWoQvxZAnNiU_TjFtMtMEVfY') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+      z-index: 1;
+      color: #2f2f2f;
+      scroll-behavior: smooth;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }body::before {
+  content: "";
+  background: rgba(255, 255, 255, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle, #c7e8b4 0%, #e1efe4 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  text-align: center;
+}
+
+.overlay h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  color: #333;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.overlay input {
+  padding: 0.8rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  width: 260px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+header {
+  position: relative;
+  background: linear-gradient(145deg, #b3d5a6, #e1efe4);
+  padding: 2.5rem 1rem;
+  text-align: center;
+  color: #000;
+  font-family: 'Quicksand', sans-serif;
+  overflow: hidden;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.4rem;
+  z-index: 2;
+  position: relative;
+}
+
+header p {
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+  color: #444;
+  z-index: 2;
+  position: relative;
+}
+
+header p.quote {
+  font-size: 1rem;
+  font-style: italic;
+  margin-top: 0.3rem;
+  color: #666;
+}
+
+.floating-hearts {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.floating-hearts::before, .floating-hearts::after {
+  content: '❤';
+  position: absolute;
+  font-size: 1.5rem;
+  color: #f28b82;
+  animation: floatHeart 6s ease-in-out infinite;
+}
+
+.floating-hearts::after {
+  left: 80%;
+  animation-delay: 3s;
+}
+
+@keyframes floatHeart {
+  0% {
+    top: 100%;
+    opacity: 0;
+    transform: translateX(0) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-20px) rotate(45deg);
+  }
+  100% {
+    top: -10%;
+    opacity: 0;
+    transform: translateX(20px) rotate(90deg);
+  }
+}
+
+main {
+  flex: 1;
+}
+
+section {
+  padding: 2.5rem 1.5rem;
+  max-width: 750px;
+  margin: auto;
+}
+
+.love-letter {
+  background: rgba(255, 255, 255, 0.7);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.06);
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: #2e2e2e;
+  color: #fff;
+}
+
+#music-control {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  background: #b3d5a6;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  z-index: 1000;
+}
+
+  </style>
+</head>
+<body>
+  <div class="overlay" id="unlock-screen">
+    <h2>I love you</h2>
+    <input type="text" id="unlock-input" placeholder="Say it" />
+  </div>  <audio id="bg-music" autoplay loop>
+    <source src="website music.mp3" type="audio/mpeg" />
+  </audio>
+  <button id="music-control">🔊</button>  <header>
+    <h1>Happy Monthversary, Ally</h1>
+    <p>Together since April 28, 2024</p>
+    <p class="quote">"You are my today and all of my tomorrows."</p>
+    <div class="floating-hearts"></div>
+  </header>  <main>
+    <section class="love-letter">
+      <h2>My Letter to You</h2>
+      <p>Write your love letter here. I can help if you want ideas or want me to proofread it.</p>
+    </section>
+  </main>  <footer>
+    Made with love by Nayan
+  </footer>  <script>
+    const overlay = document.getElementById('unlock-screen');
+    const unlockInput = document.getElementById('unlock-input');
+    const music = document.getElementById('bg-music');
+    const controlBtn = document.getElementById('music-control');
+
+    controlBtn.addEventListener('click', () => {
+      if (music.paused) {
+        music.play();
+        controlBtn.textContent = '🔊';
+      } else {
+        music.pause();
+        controlBtn.textContent = '🔇';
+      }
+    });
+
+    unlockInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        if (unlockInput.value.trim().toLowerCase() === 'i love you more') {
+          overlay.style.display = 'none';
+        } else {
+          unlockInput.value = '';
+          unlockInput.placeholder = 'Try again, love!';
+        }
+      }
+    });
+  </script></body>
+</html>
